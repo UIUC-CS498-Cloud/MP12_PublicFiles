@@ -46,12 +46,12 @@ def get_dataset(dataset_name, model_name):
     if model_name == "cnn" or model_name == "cnv":
         trans = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
     if dataset_name == 'mnist':
-        train_dataset = dsets.KMNIST(root='./data',
+        train_dataset = dsets.MNIST(root='./data',
                             train=True,
                             transform=trans,
                             download=True)
 
-        test_dataset = dsets.KMNIST(root='./data',
+        test_dataset = dsets.MNIST(root='./data',
                                 train=False,
                                 transform=trans)
     elif dataset_name == "kmnist":
