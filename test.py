@@ -1,12 +1,18 @@
 import requests
 import json
-url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp12-grader"
+
+url = "https://6rsqbadgd5jm4jj52ezggecgqu0dbnol.lambda-url.us-east-1.on.aws/"
+
 payload = {
-            "accountId": 123455100654,
-            "submitterEmail": '12345@illinois.edu',
-            "secret": 'FVPlDlckg68Jwhei',
-            "ipaddress": '3.235.141.208:5000'
+            "submitterEmail": ' ', # Your Email Id as it appears in the coursera instruction page
+            "secret": ' ', # Your token as it appears in the coursera instruction page. This token will only be valid for 30 mins.
+            "ipaddress": '<IPv4>:<Port>' # Public IPv4 address which you can find on te EC2 instance home page. Add port number on which your server is running.
     }
-r = requests.post(url, data=json.dumps(payload))
+
+
+print("Running the autograder. This might take several seconds...")
+
+r = requests.post(url, data=json.dumps(payload), headers = {"Content-Type": "application/json"})
+
 print(r.status_code, r.reason)
 print(r.text)
