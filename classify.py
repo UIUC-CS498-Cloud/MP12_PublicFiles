@@ -81,7 +81,7 @@ def main():
     input_size = 784       # The image size = 28 x 28 = 784
     hidden_size = 500      # The number of nodes at the hidden layer
     num_classes = 10       # The number of output classes. In this case, from 0 to 9
-    num_epochs = 5        # The number of times entire dataset is trained
+    num_epochs = 1        # The number of times entire dataset is trained
     batch_size = 100       # The size of input data took for one iteration
     learning_rate = 0.001  # The speed of convergence
 
