@@ -121,3 +121,34 @@ AWS EKS/Kubernetes setup:
 - Modify classify.py to flush stdout to see the output
 - Added ENV to Dockerfile
 - Used tag when building docker image (did not use ":latest")
+- *Containerization*
+- The classify.py file that I used had hard-coded DATASET & TYPE which I fixed manually
+- I modified classify.py to flush stdout to see the output
+- Added ENV to Dockerfile
+- To keep it simple, I manually downloaded the raw/processed mnist data from internet and built it into the Docker image and turned off the download in classify.py
+- HINT: DATASET value mnist vs kmnist ;** Tested the Docker image on node 0 and then did the same on node 1 and node 2 (so I have image locally available on node 1 & node 2)
+- Used tag when building docker image (did not use ":latest")
+
+Deploying to cluster
+- Created two job specs (one for free service and another one for premium)
+- Tested job specs locally on node 0
+- Defined ENV in job spec
+
+Resource Provisioning
+- Followed the instruction at https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/ to create & apply resource quota
+- Locally tested the resource quota on node 0
+- Ensured that atmost there can be only two free-service jobs and there can be any number of premium jobs
+
+Exposing Image Classification
+- Created GET "/config" endpoint to return pod details
+- Created two POST endpoints: one for free and another one for premium (HINT: DATASET value mnist vs kmnist ;-))
+- Log debug messages from your RESTful endpoints so that you can find out what's going when you run test.py
+- You don't have to necessarily use client libraries ;-)
+- Created a simple shell script on node 0 to delete jobs. Required before running test.py
+- Finally delete all the services
+
+More tips:
+- For MP12, autograder creates 3 free POSTs, then call a GET config to check if there are only 2 free pods running, then it repeats the same process with 3 premium POST and check config again to check if 3 pods were created, finally it call a premium POST and a config GET again.
+- One common mistake iss: inside free and premium yaml files I was using "name: <job_name>" (inside metadata). This means that the free and premium jobs were not creating new pods every time I request a POST. Instead, by using "generateName: <job_name>-" (inside metadata), I solved this issue, so now every POST creates a new pod, and ResourceQuota in the free-service namespace limits to a max of 2 free pods.
+- Also, students can access kubectl commands directly inside the FLASK app to parse the information necessary to create the config GET. However, autograder calls many of the GET and POST in sequence, and accessing directly kubectl commands in Python is a slow solution (takes 3s to return the config GET), making autograder to generate a timeout error. The solution is to use the python API directly through load_kube_config() and ApiClient().
+- A good way to increase the productivity to create and test your FLASK code, clean your pods/jobs, create/delete your aws clusters and quickly run the autograder is to use your local machine and two jupyter notebooks. You can safely transform your local PC in a web server using a free app called: ngrox. You use one notebook to run the flask app and one notebook to track pods and jobs created, delete them easily, without to repeat many commands in an Ubuntu VM and run autograder. This saved me a lot of time in configurating an EC2 and testing my code.

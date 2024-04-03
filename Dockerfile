@@ -1,5 +1,4 @@
 FROM python:3.6
-MAINTAINER CCA
 
 # Creating Application Source Code Directory
 RUN ...
@@ -7,12 +6,18 @@ RUN ...
 # Setting Home Directory for containers
 WORKDIR ...
 
-# Installing python dependencies
-# copy current files to src folder (requirements.txt and classify.py)
+# Copy src files folder (requirements.txt and classify.py)
 COPY ...
 
-# install dependencies mentioned in requirements.txt
+# Installing python dependencies
 RUN ...
+
+# Preload the data
+RUN ...
+
+# Pretrain the models
+RUN ...
+
 
 # Application Environment variables. 
 # These variables will be used when you run the image. 
