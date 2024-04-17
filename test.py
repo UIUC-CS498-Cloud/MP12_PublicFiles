@@ -4,10 +4,10 @@ import json
 url = "https://vh4xhmjk3lw2ibz5k6sa4i6fym0ltkqv.lambda-url.us-east-1.on.aws/"
 
 payload = {
-            "submitterEmail": ' ', # Your Email Id as it appears in the coursera instruction page.
-            "secret": ' ', # Your token as it appears in the coursera instruction page. This token will only be valid for 30 mins.
-            "ipaddress": '<IPv4>:<Port>' # Public IPv4 address which you can find on the EC2 instance home page. Add port number on which your server is running (5000).
-    }
+    "submitterEmail": ' ', # Your Email Id as it appears in the coursera instruction page.
+    "secret": ' ', # Your token as it appears in the coursera instruction page. This token will only be valid for 30 mins.
+    "ipaddress": '<IPv4>:<Port>' # Public IPv4 address which you can find on the EC2 instance home page. Add port number on which your server is running (5000). Include "http://" in the IP address.
+}
 
 
 print("Running the autograder. This might take several seconds...")
