@@ -6,7 +6,7 @@ RUN ...
 # Setting Home Directory for containers
 WORKDIR ...
 
-# Copy src files folder (requirements.txt and classify.py)
+# Copy src python files
 COPY ...
 
 # Installing python dependencies
@@ -25,19 +25,5 @@ RUN ...
 RUN ...
 RUN ...
 
-
-# Application Environment variables. 
-# These variables will be used when you run the image. 
-# You will also need to pass corresponding DATASET and TYPE variables from the job yaml files of both free-service and default types of jobs.
-ENV APP_ENV development
-ENV DATASET mnist
-ENV TYPE ff
-
-# Exposing Ports
-EXPOSE 5035
-
-# Setting Persistent data
-VOLUME ["/app-data"]
-
-# Running Python Application (classify.py)
+# Running Python Application
 CMD ...
