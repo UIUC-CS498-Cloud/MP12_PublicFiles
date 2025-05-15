@@ -1,0 +1,5 @@
+#
+# This YAML defines a template for launching a batch job in the 'free-service' namespace.
+# The job runs a container that performs a classification task.
+#
+# TODO: Fill in the Kubernetes Job spec here.

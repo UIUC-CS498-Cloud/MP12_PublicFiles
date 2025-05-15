@@ -1,0 +1,6 @@
+# Starter Kubernetes Deployment and Service for the Web Tier.
+#
+# This YAML defines a deployment and service for the web-tier Envoy proxy.
+# Students may use this as a base for deploying their web-tier and exposing it via a LoadBalancer.
+#
+# TODO: Fill in the Kubernetes Deployment and Service spec here.

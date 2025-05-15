@@ -1,0 +1,7 @@
+# Starter Envoy proxy configuration for the Free Tier service.
+#
+# This YAML configures Envoy to proxy HTTP requests to the Flask API running
+# on free-tier-service. Students may use this as a base for adding routing, filters,
+# or other proxy features as needed.
+#
+# TODO: Fill in the Envoy proxy configuration here.

@@ -1,0 +1,6 @@
+# Starter Envoy proxy configuration for the Web Tier service.
+#
+# This YAML configures Envoy to route HTTP requests to the Free and Premium services.
+# Students may use this as a base for adding routing, filters, or other proxy features as needed.
+#
+# TODO: Fill in the Envoy proxy configuration here.

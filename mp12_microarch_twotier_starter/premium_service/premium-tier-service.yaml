@@ -1,0 +1,6 @@
+# Starter Kubernetes Service for the Premium Tier deployment.
+#
+# This YAML exposes the Premium Tier deployment via a ClusterIP service on port 8080.
+# Students may use this as a base for exposing their application within the cluster.
+#
+# TODO: Fill in the Kubernetes Service spec here.

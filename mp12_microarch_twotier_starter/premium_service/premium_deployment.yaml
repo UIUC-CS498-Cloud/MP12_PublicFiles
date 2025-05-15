@@ -1,0 +1,6 @@
+# Starter Kubernetes Deployment for the Premium Tier service.
+#
+# This YAML defines a deployment that runs both the Flask API and Envoy proxy
+# in the 'premium-service' namespace. 
+#
+# TODO: Fill in the Kubernetes Deployment spec here.

@@ -1,0 +1,13 @@
+# Starter Dockerfile for the web-tier Envoy proxy.
+#
+# This Dockerfile should package Envoy with a custom configuration for the web tier.
+# Students should complete the steps below as needed for their assignment.
+#
+
+# TODO: Specify the Envoy base image
+
+# TODO: Copy the Envoy configuration file into the image
+
+# TODO: Expose the required ports
+
+# TODO: Specify the default command to run Envoy

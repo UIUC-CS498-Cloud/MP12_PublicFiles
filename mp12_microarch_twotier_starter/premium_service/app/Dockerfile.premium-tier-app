@@ -1,0 +1,20 @@
+# Dockerfile for the Premium Tier Flask application.
+#
+# This Dockerfile builds a minimal container image for running the Flask API
+# that launches Kubernetes jobs. It installs the required dependencies and
+# copies the application code into the image. 
+# Students may modify this file to add build steps or change the base image as needed.
+
+
+# TODO: Specify a Python base image
+
+# TODO: Set the working directory
+
+# TODO: Copy the necessary application files into the image (from premium_service/app/ directory)
+
+# TODO: Install Python dependencies
+
+# TODO: Expose the required port
+
+# Specify the default command to run the Flask app
+CMD ["python3", "flask_app.py"]
